@@ -20,7 +20,7 @@ class ShortifyManagerApplication : CommandLineRunner {
     val logger = LoggerFactory.getLogger(javaClass)
 
     override fun run(vararg args: String?) {
-        val shouldGenerateSomeKeys = true
+        val shouldGenerateSomeKeys = false
 
         if(shouldGenerateSomeKeys){
             logger.info("Creating new url keys")

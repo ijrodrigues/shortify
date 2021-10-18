@@ -8,3 +8,9 @@ services:
       MYSQL_DATABASE: "shortify-manager"
     ports:
       - "3306:3306"
+
+  redis:
+    image: redis
+    command: redis-server --requirepass admin
+    ports:
+      - "6379:6379"
