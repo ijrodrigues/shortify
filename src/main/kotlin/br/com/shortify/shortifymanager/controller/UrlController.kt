@@ -4,6 +4,7 @@ import br.com.shortify.shortifymanager.dto.shortify.ShortifyRequest
 import br.com.shortify.shortifymanager.dto.shortify.ShortifyResponse
 import br.com.shortify.shortifymanager.service.UrlService
 import org.springframework.http.HttpStatus.CREATED
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/shortify-manager")
 class UrlController(private val urlService: UrlService) {
 
+    @CrossOrigin
     @PostMapping("/shortify")
     @ResponseStatus(CREATED)
     fun shortify(@RequestBody shortifyRequest : ShortifyRequest): ShortifyResponse {
