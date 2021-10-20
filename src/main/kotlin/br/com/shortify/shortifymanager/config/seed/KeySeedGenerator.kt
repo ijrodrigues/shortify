@@ -1,4 +1,4 @@
-package br.com.shortify.shortifymanager.seed
+package br.com.shortify.shortifymanager.config.seed
 
 import br.com.shortify.shortifymanager.domain.UrlKey
 import br.com.shortify.shortifymanager.repository.UrlKeyRepository

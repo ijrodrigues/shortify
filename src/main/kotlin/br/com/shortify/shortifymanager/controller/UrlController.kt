@@ -21,7 +21,7 @@ class UrlController(private val urlService: UrlService) {
     @PostMapping("/shortify")
     @ResponseStatus(CREATED)
     fun shortify(@RequestBody shortifyRequest : ShortifyRequest): ShortifyResponse {
-        val url = urlService.shortify(shortifyRequest.url)
+        val url = urlService.shortify(shortifyRequest.url, shortifyRequest.sanitizedId())
         return ShortifyResponse(url.id, url.originalUrl)
     }
 

@@ -12,6 +12,14 @@ class UrlKeyService(private val urlKeyRepository: UrlKeyRepository) {
         return urlKeyRepository.findFirstByAvailableIsTrue().orElseThrow()
     }
 
+    fun findById(id : String) = urlKeyRepository.findById(id)
+
+    fun createCustomKey(id : String): UrlKey {
+        //todo throw a especific exception
+        findById(id).ifPresent { throw RuntimeException("$id Already exists!") }
+        return urlKeyRepository.save(UrlKey(id, available = false, customId = true))
+    }
+
     fun burnKey(urlKey : UrlKey) {
         urlKeyRepository.save(urlKey.copy(available = false))
     }
