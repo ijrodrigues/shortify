@@ -20,13 +20,13 @@ class ShortifyManagerApplication : CommandLineRunner {
     val logger = LoggerFactory.getLogger(javaClass)
 
     override fun run(vararg args: String?) {
-        val shouldGenerateSomeKeys = false
+        val shouldGenerateSomeKeys = true
 
         if(shouldGenerateSomeKeys){
             logger.info("Creating new url keys")
             val keys = mutableSetOf<String>()
 
-            for (x in 0..1000){
+            for (x in 0..50){
                 keys.add(randomAlphanumeric(LENGTH).lowercase())
             }
 
