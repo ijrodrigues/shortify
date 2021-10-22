@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shortify-manager
+spec:
+  template:
+    metadata:
+      name: shortify-manager
+      labels:
+        app: shortify-manager
+    spec:
+      containers:
+        - name: shortify-manager
+          image: shortify-manager:0.0.1
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: shortify-manager-config-map
+  replicas: 2
+  selector:
+    matchLabels:
+      app: shortify-manager

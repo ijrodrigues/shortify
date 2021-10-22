@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shortify-front
+spec:
+  template:
+    metadata:
+      name: shortify-front
+      labels:
+        app: shortify-front
+    spec:
+      containers:
+        - name: shortify-front
+          image: shortify-front:0.0.1
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: shortify-front-config-map
+  replicas: 2
+  selector:
+    matchLabels:
+      app: shortify-front
